@@ -1,3 +1,6 @@
+alert("Welcome to the R-S-P Arcade Machine!!! \n Disclaimer: The controls are on the left side, just below Player 1 (the opponent is automatic, the buttons are for design)!")
+
+
 let paperBtn=document.getElementById('paper-select');
 let rockBtn=document.getElementById('rock-select');
 let scissorsBtn=document.getElementById('scissors-select');
@@ -8,7 +11,10 @@ let opponentRock=document.getElementById('opponent-rock-display');
 let opponentPaper=document.getElementById('opponent-paper-display');
 let opponentScissors=document.getElementById('opponent-scissors-display');
 let status=document.getElementById('status');
-let score=0;
+let playerScore=document.getElementById('player-score');
+let oppScore=document.getElementById('opponent-score');
+let newGame=document.getElementById('new-game-button');
+let playerScoreInt=0, oppScoreInt=0;
 
 function resetDisplay(hand){
     if(hand==paper)
@@ -27,12 +33,26 @@ function resetDisplay(hand){
         paper.style.display="none";
     }
 }
+
+function resetDisplayOpp()
+{
+    opponentPaper.style.display="none";
+    opponentScissors.style.display="none";
+    opponentRock.style.display="none";
+}
+
 function randomizer(){
     const stances = ["Rock","Scissors","Paper"];
     const randomStances = stances[Math.floor(Math.random() * stances.length)];
     return randomStances;
     }
 
+
+
+function scoreAssign(){
+    oppScore.innerText=oppScoreInt;
+    playerScore.innerText=playerScoreInt;
+}
 paperBtn.addEventListener("click",function(){
     resetDisplay(paper);
     paper.style.display="block";
@@ -43,7 +63,7 @@ paperBtn.addEventListener("click",function(){
             opponentScissors.style.display="none";
             opponentRock.style.display="block";
             status.innerText="Win!";
-            score=score+1;
+            playerScoreInt+=1;
        }   
     else if(randomizer()=="Paper")
         {   
@@ -58,8 +78,9 @@ paperBtn.addEventListener("click",function(){
             opponentRock.style.display="none";
             opponentScissors.style.display="block";
             status.innerText="Loss!";
+            oppScoreInt+=1;
         }
-        return score;
+        scoreAssign();
     })
 
 let scorePly=document.getElementById('player-score');
@@ -75,7 +96,6 @@ rockBtn.addEventListener("click",function(){
             opponentScissors.style.display="none";
             opponentRock.style.display="block";
             status.innerText="Draw!";
-            score=score+1;
        }   
     else if(randomizer()=="Paper")
         {   
@@ -83,6 +103,8 @@ rockBtn.addEventListener("click",function(){
             opponentScissors.style.display="none";
             opponentPaper.style.display="block";
             status.innerText="Loss!";
+            oppScoreInt+=1;
+            
         }
     else if(randomizer()=="Scissors")
         {
@@ -90,12 +112,16 @@ rockBtn.addEventListener("click",function(){
             opponentRock.style.display="none";
             opponentScissors.style.display="block";
             status.innerText="Win!";
+            playerScoreInt+=1;
+           
         }
-        return score;
+        scoreAssign();
+        
 })
 
 scissorsBtn.addEventListener("click",function(){
     resetDisplay(scissors);
+    resetDisplayOpp();
     scissors.style.display="block";
     status.innerText="";
     if(randomizer()=="Rock")
@@ -104,7 +130,8 @@ scissorsBtn.addEventListener("click",function(){
             opponentScissors.style.display="none";
             opponentRock.style.display="block";
             status.innerText="Loss!";
-            score=score+1;
+            oppScoreInt+=1;
+          
        }   
     else if(randomizer()=="Paper")
         {   
@@ -112,6 +139,8 @@ scissorsBtn.addEventListener("click",function(){
             opponentScissors.style.display="none";
             opponentPaper.style.display="block";
             status.innerText="Win!";
+            playerScoreInt+=1;
+           
         }
     else if(randomizer()=="Scissors")
         {
@@ -120,6 +149,21 @@ scissorsBtn.addEventListener("click",function(){
             opponentScissors.style.display="block";
             status.innerText="Draw!";
         }
-        return score;
+        scoreAssign();
+    
+    
 })
+
+newGame.addEventListener("click", function(){
+    
+    status.innerText="";
+    playerScoreInt=0;
+    oppScoreInt=0;
+    oppScore.innerText=0;
+    playerScore.innerText=0;
+    resetDisplay(paper);
+    resetDisplay(rock);
+    resetDisplay(scissors);
+    resetDisplayOpp();
+});
 
