@@ -29,12 +29,12 @@
 
     @font-face{
         font-family: Arcade-Text;
-        src: url(./assets/font-files/ARCADECLASSIC.woff);
+        src: url(/assets/font-files/ARCADECLASSIC.woff);
     }
 
     @font-face{
         font-family: Arcade-Icons;
-        src: url(./assets/font-files/ArcadeVideoGames.ttf);
+        src: url(/assets/font-files/ArcadeVideoGames.ttf);
     }
     
     /* grid styling */
