@@ -1,0 +1,229 @@
+    /*grid settings only*/
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 2fr repeat(2, 4fr) repeat(4, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        }
+
+    .header { grid-area: 1 / 1 / 2 / 8; }
+    .player-screen { grid-area: 2 / 2 / 4 / 4; }
+    .opponent-screen { grid-area: 2 / 5 / 4 / 7; }
+    .score-board { grid-area: 2 / 4 / 4 / 5; }
+    .player-info { grid-area: 2 / 1 / 4 / 2; }
+    .opponent-info { grid-area: 2 / 7 / 4 / 8; }
+    .player-rock-choice-select { grid-area: 4 / 1 / 7 / 2; }
+    .player-scrissors-choice-select { grid-area: 4 / 2 / 7 / 3; }
+    .player-paper-choice-select { grid-area: 4 / 3 / 7 / 4; }
+    .opponent-rock-choice-select { grid-area: 4 / 5 / 7 / 6; }
+    .opponent-scrissors-choice-select { grid-area: 4 / 6 / 7 / 7; }
+    .opponent-paper-choice-select { grid-area: 4 / 7 / 7 / 8; }
+    .footer { grid-area: 7 / 1 / 8 / 8; }
+    .new-game-option { grid-area: 4 / 4 / 5 / 5; }
+    .random-for-player-option { grid-area: 5 / 4 / 6 / 5; }
+    .game-info { grid-area: 6 / 4 / 7 / 5; }
+
+    /*fonts*/
+
+    @font-face{
+        font-family: Arcade-Text;
+        src: url(/assets/font-files/ARCADECLASSIC.woff);
+    }
+
+    @font-face{
+        font-family: Arcade-Icons;
+        src: url(/assets/font-files/ArcadeVideoGames.ttf);
+    }
+    
+    /* grid styling */
+
+    .header{
+        background-color:rgb(253, 253, 70);
+        border:10px solid rgb(53, 109, 155);
+        
+    }
+    .header h1{
+        font-family: Arcade-Text;
+        font-size:40px;
+        text-align:center;
+        position:relative;
+       
+    }
+
+    .icon-img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .player-info p{
+        font-family: Arcade-Text;
+        font-size: 20px;
+    }
+
+    .player-info a{
+        font-family: Arcade-Icons;
+        font-size:120px;
+    }
+
+    .player-info{
+        text-align:center;
+        background:rgb(148, 47, 148);
+        border:10px solid rgb(53, 109, 155);
+
+    }
+    .opponent-info p{
+        font-family: Arcade-Text;
+        font-size: 20px;
+    }
+
+    .opponent-info a{
+        font-family: Arcade-Icons;
+        font-size:120px;
+        
+
+    }
+    .opponent-info{
+        text-align:center;
+        background:rgb(148, 47, 148);
+        border:10px solid rgb(53, 109, 155);
+
+    }
+    .score-board{
+        background-color:rgb(115, 214, 115);
+        
+    }
+    
+    
+    
+    .player-screen img{
+        height:417px;
+        width:438px;
+        
+
+    }
+
+    .player-screen{border:10px solid  rgb(53, 109, 155);}
+    .opponent-screen{border:10px solid  rgb(53, 109, 155);}
+    
+    .opponent-screen img{
+        height:417px;
+        width:438px;
+    }
+
+    .score-board{
+        font-family: Arcade-Text;
+        text-align: center;
+        font-size:40px;
+        border:10px solid rgb(53, 109, 155);
+    }
+
+    /*player screen symbol display*/
+
+    #player-paper-display {
+        max-width: 100%;
+        max-height: 100%;
+        display:none;
+    
+    }
+    #player-rock-display {
+        display:none;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    #player-scissors-display{
+        max-width: 100%;
+        max-height: 100%;
+        display:none;
+    }
+
+    /*opponent*/
+
+    #opponent-paper-display {
+        max-width: 100%;
+        max-height: 100%;
+        display:none;
+    }
+    #opponent-rock-display {
+        max-width: 100%;
+        max-height: 100%;
+        display:none;
+        
+    }
+    #opponent-scissors-display{
+        max-width: 100%;
+        max-height: 100%;
+        display:none;
+    }
+
+    /*player choice select buttons*/
+
+    .player-rock-choice-select { border:10px solid  rgb(53, 109, 155);}
+    .player-scrissors-choice-select { border:10px solid  rgb(53, 109, 155);}
+    .player-paper-choice-select { border:10px solid  rgb(53, 109, 155); }
+
+    /*opponent choice select buttons*/
+
+    .opponent-rock-choice-select { border:10px solid  rgb(53, 109, 155);}
+    .opponent-scrissors-choice-select { border:10px solid  rgb(53, 109, 155);}
+    .opponent-paper-choice-select { border:10px solid rgb(53, 109, 155);}
+
+    /* misc buttons */ 
+
+    .new-game-option{
+        font-family: Arcade-Text;
+        text-align: center;
+        background-color:rgb(253, 253, 70);
+        border:10px solid rgb(53, 109, 155);
+    }
+
+    .new-game-option a{
+        position:relative;
+        top:10px;
+
+    }
+
+    .random-for-player-option{
+        font-family: Arcade-Text;
+        text-align: center;
+        background-color:rgb(253, 253, 70);
+        border:10px solid rgb(53, 109, 155);
+        
+    }
+
+    .random-for-player-option a{
+        position:relative;
+        top:10px;
+
+    }
+
+    .game-info{
+        font-family: Arcade-Text;
+        text-align: center;
+        background-color:rgb(253, 253, 70);
+        border:10px solid rgb(53, 109, 155);
+    }
+
+    .game-info a{
+        position:relative;
+        top:10px;
+
+    }
+
+    .footer{
+        font-family: Arcade-Icons;
+        font-size: 30px;
+        font-weight: bold;
+        background-color:rgb(135, 52, 138);
+        border:10px solid rgb(53, 109, 155);
+    }
+
+    .footer a{
+        position:relative;
+        top:4px;
+        margin-left:80px;
+        margin-right:23px;
+        
+        
+    }
