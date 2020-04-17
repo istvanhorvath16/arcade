@@ -1,4 +1,4 @@
-alert("Welcome to the R-S-P Arcade Machine!!! \n Disclaimer: The controls are on the left side, just below Player 1 (the opponent is automatic, the buttons are for design)!")
+alert("Welcome to the R-S-P Arcade Machine!!! \n Disclaimer: The controls are on the left side, just below Player 1 (the opponent is automatic, the buttons are for design)! \n For more information click on the Game Info button")
 
 
 let paperBtn=document.getElementById('paper-select');
@@ -14,20 +14,21 @@ let status=document.getElementById('status');
 let playerScore=document.getElementById('player-score');
 let oppScore=document.getElementById('opponent-score');
 let newGame=document.getElementById('new-game-button');
+let gameInfo=document.getElementById("game-inform");
 let playerScoreInt=0, oppScoreInt=0;
 
 function resetDisplay(hand){
-    if(hand==paper)
+    if(hand=="paper")
     {
     rock.style.display="none";
     scissors.style.display="none";
     }
-    else if(hand==rock)
+    else if(hand=="rock")
     {
     paper.style.display="none";
     scissors.style.display="none";
     }
-    else if(hand==scissors)
+    else if(hand=="scissors")
     {
         rock.style.display="none";
         paper.style.display="none";
@@ -42,7 +43,7 @@ function resetDisplayOpp()
 }
 
 function randomizer(){
-    const stances = ["Rock","Scissors","Paper"];
+    const stances = ["Rock","Scissors","Paper","Rock","Scissors","Paper"];
     const randomStances = stances[Math.floor(Math.random() * stances.length)];
     return randomStances;
     }
@@ -54,7 +55,7 @@ function scoreAssign(){
     playerScore.innerText=playerScoreInt;
 }
 paperBtn.addEventListener("click",function(){
-    resetDisplay(paper);
+    resetDisplay("paper");
     paper.style.display="block";
     status.innerText="";
     if(randomizer()=="Rock")
@@ -87,7 +88,7 @@ let scorePly=document.getElementById('player-score');
 
 
 rockBtn.addEventListener("click",function(){
-    resetDisplay(rock);
+    resetDisplay("rock");
     rock.style.display="block";
     status.innerText="";
     if(randomizer()=="Rock")
@@ -120,7 +121,7 @@ rockBtn.addEventListener("click",function(){
 })
 
 scissorsBtn.addEventListener("click",function(){
-    resetDisplay(scissors);
+    resetDisplay("scissors");
     resetDisplayOpp();
     scissors.style.display="block";
     status.innerText="";
@@ -161,9 +162,17 @@ newGame.addEventListener("click", function(){
     oppScoreInt=0;
     oppScore.innerText=0;
     playerScore.innerText=0;
-    resetDisplay(paper);
-    resetDisplay(rock);
-    resetDisplay(scissors);
+    resetDisplay("paper");
+    resetDisplay("rock");
+    resetDisplay("scissors");
     resetDisplayOpp();
 });
+
+gameInfo.addEventListener("click",function(){
+    alert("R-S-P Machine \n Classic Rock-Scissor-Paper Game, select any of the three options and the opponent will trigger one automatically too\n To reset the score just click on the New Game button \n To play randomly without selecting an option click on the Random Player Choice");
+})
+
+
+
+
 
